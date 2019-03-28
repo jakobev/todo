@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+</head>
+<body>
+    <h1>Works</h1>
+    
+    <script type="text/javascript" src="app.js"></script>
+
+    <div id="formBlock">
+    <form action="" method="POST" id="simpleForm">
+        First name*:<br>
+        <input id="firstName" type="text" name="firstname" required ><br>
+        Last name*:<br>
+        <input id="lastName" type="text" name="lastname" required><br>
+        Email*:<br>
+        <input id="email" type="text" name="email" required><br>
+        <p>Click to show details</p>
+        <input type="button" onclick="showInput();" value="Submit Junge" ><br>
+        <p id="userOutput"></p>
+    </form> 
+</div>
+
+
+
+    <!--<script>
+        let inputUser = new User();
+
+       function showInput(){
+            var details = inputUser.uVorname = document.getElementById("firstName").value;
+            details += inputUser.uNachname = document.getElementById("lastName").value;
+            details += inputUser.uEmail = document.getElementById("email").value;
+            userOutput.innerHTML = details;
+        }
+    </script>
+-->
+
+<div id="myDIV" class="header">
+    <h2 style="margin:5px">Todo List </h2>
+    <input type="text" id="myInput" placeholder="Titel...">
+    <span onclick="newElement()" class="addBtn">Add</span>
+
+
+</div>
+
+<ul id="myUL">
+    <li>Irgendwas</li>
+    <li class="checked">Irgendwas anderes</li>
+    <li>Noch was anderes</li>
+    <li>Wieder anderes</li>
+</ul>
+
+
+<script>
+    var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
+
+// Create a new list item when clicking on the "Add" button
+//window.addEventListener("load", function(){
+
+  function newElement() {
+    var li = document.createElement("li");
+    var inputValue = document.getElementById("myInput").value;
+    var t = document.createTextNode(inputValue);
+    li.appendChild(t);
+    if (inputValue === '') {
+      alert("You must write something!");
+    } else {
+      document.getElementById("myUL").appendChild(li);
+    }
+    document.getElementById("myInput").value = "";
+  
+    var span = document.createElement("SPAN");
+    var txt = document.createTextNode("\u00D7");
+    span.className = "close";
+    span.appendChild(txt);
+    li.appendChild(span);
+  
+    for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+  } 
+</script>
+
+</body>
+</html>
