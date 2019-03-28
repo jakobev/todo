@@ -151,11 +151,6 @@ document.write(personValue.biografie());
 //document.write(personValue.getName());
 
 
-//TODO LIST APP
-
-// Create a "close" button and append it to each list item
-//window.onload = function(){//<---That is very important cause of html rendering!!
-//window.addEventListener("load", function(){
 
 
 
