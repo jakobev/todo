@@ -40,39 +40,43 @@
     </script>
 -->
 
-<div id="myDIV" class="header">
+<!--TODO LIST APP
+
+  //window.onload = function(){//<---That is very important cause of html rendering!!
+    
+  -->
+
+  <!--
+    simple html code to display list with an input field
+  -->
+  <div id="myDIV" class="header">
     <h2 style="margin:5px">Todo List </h2>
     <input type="text" id="myInput" placeholder="Titel...">
     <span onclick="newElement()" class="addBtn">Add</span>
-
-
-</div>
-
-<ul id="myUL">
+    
+    
+  </div>
+  
+  <ul id="myUL">
     <li>Irgendwas</li>
     <li class="checked">Irgendwas anderes</li>
     <li>Noch was anderes</li>
     <li>Wieder anderes</li>
-</ul>
-
-//TODO LIST APP
-
-// Create a "close" button and append it to each list item
-//window.onload = function(){//<---That is very important cause of html rendering!!
-//window.addEventListener("load", function(){
-
-<script>
+  </ul>
+  
+  <script>
+    //Create a close button and append it to each list item
     var myNodelist = document.getElementsByTagName("LI");
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement("SPAN");
-  var txt = document.createTextNode("\u00D7");
-  span.className = "close";
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+    var i;
+    for (i = 0; i < myNodelist.length; i++) {
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      myNodelist[i].appendChild(span);
 }
 
-// Click on a close button to hide the current list item
+// Click on a close button to list item
 var close = document.getElementsByClassName("close");
 var i;
 for (i = 0; i < close.length; i++) {
@@ -82,17 +86,18 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
-// Add a "checked" symbol when clicking on a list item
+// Add a checked symbol when clicking on list item
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
   }
+  store();
 }, false);
 
 
 
-// Create a new list item when clicking on the "Add" button
+// Create a new list item when clicking add button
 //window.addEventListener("load", function(){
 
   function newElement() {
@@ -119,7 +124,27 @@ list.addEventListener('click', function(ev) {
         div.style.display = "none";
       }
     }
+    store();
   } 
+  //this function is to get the list as id from html and set
+  //localstorage.myItems to the html code of list
+  function store() {
+    var list = document.querySelector('#myUL');
+    window.localStorage.myItems = list.innerHTML;
+  }
+  /**
+   * this function is to get all values from the list stored in 
+   * local storage and if there arent values display a default value
+   **/
+  function getValues () {
+    var storedItems = window.localStorage.myItems;
+    if(!storedItems){
+      list.innerHTML = '<li>drink energy or coffee</li>'
+    }else {
+      list.innerHTML = storedItems;
+    }
+  }
+  getValues();
 </script>
 
 </body>
