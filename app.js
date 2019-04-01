@@ -6,10 +6,10 @@ let val;
 val = Math.floor(Math.random() * 1000 + 1);
 console.log(val);
 
-const name = "marv";
+const name = "Jako";
 const age = 26;
 const job = "Software-Entwickler";
-const city = "Salzgitter";
+const city = "Berlin";
 
 //let html;
 
@@ -49,18 +49,18 @@ let anotherValue = numbers.find(function(num){
 });
 // Objekt
 const person = {
-    vorname: "Marvin",
-    nachname: "Bittermann",
+    vorname: "Jako",
+    nachname: "Bev",
     alter: 26,
-    email: "marvin.bittermann@eves-it.de",
+    email: "anything@kp.com",
     hobbies: ["zocken", "programmieren"],
     address: {
-        strasse: "An der Windmuhle",
-        hausnummer: "26",
-        plz: "38226",
-        stadt: "Salzgitter"
+        strasse: "Im Ausland",
+        hausnummer: "4",
+        plz: "09285",
+        stadt: "Übersee"
     },
-    telefon: ["01784983785", "01510394340"],
+    telefon: ["0123456789", "0123456789"],
     getBirthday: function() {
         return new Date().getFullYear() - this.alter;
     },
@@ -138,7 +138,7 @@ function gruss(vorname, nachname){
     }
     return "Hallo " + vorname + " " + nachname;
 }
-console.log(gruss("Marvin", "Bittermann"));
+console.log(gruss("Jako", "Bev"));
 console.log(gruss());
 //document.write(personValue.address.plz);
 
@@ -146,7 +146,7 @@ console.log(gruss());
 
 document.write(personValue.biografie());
 
-//personValue.vorname = "Jutta";
+//personValue.vorname = "Test";
 
 //document.write(personValue.getName());
 
