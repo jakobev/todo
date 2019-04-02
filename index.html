@@ -139,7 +139,8 @@ list.addEventListener('click', function(ev) {
   function getValues () {
     var storedItems = window.localStorage.myItems;
     if(!storedItems){
-      list.innerHTML = '<li>drink energy or coffee</li>'
+      <!-->list.innerHTML = '<li>drink energy or coffee</li>'
+        list.innerHTML = '';
     }else {
       list.innerHTML = storedItems;
     }
